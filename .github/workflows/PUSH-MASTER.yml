@@ -16,13 +16,13 @@ jobs:
       - name: Download labels' config
         shell: bash
         run: |
-          curl -LsS https://raw.githubusercontent.com/devops-infra/.github/master/.github/labels.yml -o /tmp/labels.yml
+          curl -LsS https://raw.githubusercontent.com/devops-infra/.github/master/.github/labels.yml -o .github/labels.yml
 
       - name: Update labels
         uses: crazy-max/ghaction-github-labeler@v3.1.1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          yaml-file: /tmp/labels.yml
+          yaml-file: .github/labels.yml
 
   example:
     name: Example
