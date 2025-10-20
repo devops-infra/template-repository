@@ -1,8 +1,4 @@
 ###################################################################################################
-# Custom
-.tmp/
-
-###################################################################################################
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -113,3 +109,12 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+###################################################################################################
+# Local development environment
+.tmp/
+.venv
+.venv/
+.envrc
+.env
+.tmp
