@@ -29,18 +29,13 @@ repos:
         entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work rhysd/actionlint:latest -color'
         language: system
         pass_filenames: false
-      # - id: hadolint
-      #   name: hadolint
-      #   entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work hadolint/hadolint:latest-debian hadolint Dockerfile'
-      #   language: system
-      #   pass_filenames: false
-      # - id: shellcheck
-      #   name: shellcheck
-      #   entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work koalaman/shellcheck:stable -x -S style entrypoint.sh'
-      #   language: system
-      #   pass_filenames: false
+      - id: shellcheck
+        name: shellcheck
+        entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work koalaman/shellcheck:stable -x -S style "$@"' --
+        language: system
+        files: '\.sh$'
       - id: yamllint
         name: yamllint
-        entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work cytopia/yamllint -c .yamllint.yml .'
+        entry: bash -lc 'docker run --rm -v "$PWD:/work" -w /work cytopia/yamllint -c .yamllint.yml "$@"' --
         language: system
-        pass_filenames: false
+        files: '\.(yml|yaml)$'
